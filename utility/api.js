@@ -20,6 +20,7 @@ export const useApi = () => {
                 cancelToken: source.token,
             })
             .then((res) => {
+                console.log('🚀 ~ file: api.js ~ line 23 ~ .then ~ res', res);
                 setError('');
                 setResponse(res.data);
             })

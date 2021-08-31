@@ -16,7 +16,7 @@ const availableFlights = (req, res) => {
         departureDate: body.date,
     })
         .then((response) => {
-            console.log("🚀 ~ file: flights.js ~ line 19 ~ .then ~ response", response)
+            console.log('🚀 ~ file: flights.js ~ line 19 ~ .then ~ response', response);
             const { requestId } = response.data.result;
             axios.get(`https://ws.alibaba.ir/api/v1/flights/domestic/available/${requestId}`)
                 .then((secondResponse) => {
