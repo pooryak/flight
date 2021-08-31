@@ -9,7 +9,7 @@ export default function Home() {
     const {
         response, loading, error, handleChange,
     } = useApi();
-    const [theme, setTheme] = useState('dark');
+    const [theme, setTheme] = useState('light');
     return (
         <div className={`${styles.container} ${theme}`}>
             <Head>

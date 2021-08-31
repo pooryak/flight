@@ -23,6 +23,10 @@
   width: 100%;
 }
 
+.main p{
+  color: var(--theme-page-text-first);
+}
+
 .main input {
   padding: 1rem 0.5rem;
   border-color: #ededed;

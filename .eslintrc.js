@@ -74,5 +74,7 @@ module.exports = {
         'react/destructuring-assignment': 'off',
         'import/prefer-default-export': 'off',
         'react/prefer-stateless-function': [0, { ignorePureComponents: true }],
+        'linebreak-style': 'off',
+        'no-console': 'off'
     },
 };
