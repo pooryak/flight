@@ -1,7 +1,7 @@
 import { IATACodes } from '../constants';
 
 export const locations = (value) => {
-    const validDates = ['tomorow', 'on'];
+    const validDates = ['tomorrow', 'on'];
     const spliter = (position, word, pattern) => {
         if (position === 'before') {
             return word.slice(0, word.indexOf(pattern));
@@ -16,7 +16,7 @@ export const locations = (value) => {
     if (dateWord && dateWord === 'on') {
         date = spliter('after', truncateAfter, 'on');
         date = new Date(date).toLocaleDateString('en-CA');
-    } else if (dateWord && dateWord === 'tomorow') {
+    } else if (dateWord && dateWord === 'tomorrow') {
         date = new Date();
         date.setDate(date.getDate() + 1);
         date = new Date(date).toLocaleDateString('en-CA');
