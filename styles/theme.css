@@ -1,0 +1,44 @@
+.light {
+    --theme-color: #A80000;
+    --theme-page-background: #FFF;
+    --theme-page-text-first: #424242;
+    --theme-page-text-second: #757575;
+}
+
+.dark {
+    --theme-color: #0000A8;
+    --theme-page-background: #111;
+    --theme-page-text-first: #fff;
+    --theme-page-text-second: #fff;
+}
+
+.toggle-dark, .toggle-light {
+    display: flex;
+    padding: 3px;
+    border-radius: 4px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .toggle-dark {
+    background-color: rgb(50, 50, 50);
+  }
+  .toggle-light {
+    background-color: rgb(250, 250, 250);
+  }
+  .dark-mode, .light-mode {
+    margin: 3px;
+    padding: 3px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 50px;
+    text-align: center;
+  }
+  .dark-mode {
+    background-color: rgb(50, 50, 50);
+    color: rgb(250, 250, 250);
+  }
+  .light-mode {
+    background-color: rgb(250, 250, 250);
+    color: rgb(50, 50, 50);
+  }

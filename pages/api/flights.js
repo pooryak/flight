@@ -1,13 +1,12 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import axios from 'axios';
 
-const availableFlights = async (req, res) => {
+const availableFlights = (req, res) => {
     if (req.method !== 'POST') {
         res.status(400).send({ message: 'Only POST requests allowed' });
         return;
     }
     const { body } = req;
-    const result = await axios.post('https://ws.alibaba.ir/api/v1/flights/domestic/available', {
+    axios.post('https://ws.alibaba.ir/api/v1/flights/domestic/available', {
         adult: 1, // this value doesn't need be changed
         child: 0, // this value doesn't need be changed
         infant: 0, // this value doesn't need be changed
@@ -15,18 +14,22 @@ const availableFlights = async (req, res) => {
         origin: body.origin,
         destination: body.destination,
         departureDate: body.date,
-    });
-    if (result.status === 200) {
-        const { requestId } = result.data.result;
-        const flights = await axios.get(`https://ws.alibaba.ir/api/v1/flights/domestic/available/${requestId}`);
-        console.log('🚀 ~ file: hello.js ~ line 22 ~ availableFlights ~ flights', flights);
-        return res.status(flights.status).json({ departing: flights.data.result.departing });
-        // console.log('🚀 ~ file: hello.js ~ line 24 ~ availableFlights ~ flights', flights);
-    }
-    // console.log('🚀 ~ file: hello.js ~ line 21 ~ availableFlights ~ result', result);
-    // res.status(200).json({ name: 'John Doe' });
+    })
+        .then((response) => {
+            const { requestId } = response.data.result;
+            axios.get(`https://ws.alibaba.ir/api/v1/flights/domestic/available/${requestId}`)
+                .then((secondResponse) => {
+                    res.status(200).json({ departing: secondResponse.data.result.departing });
+                })
+                .catch((err) => {
+                    console.log('🚀 ~ file: flights.js ~ line 34 ~ .then ~ err', err);
+                    res.status(400).send({ message: err });
+                    // throw new Error('BROKEN');
+                });
+        })
+        .catch((err) => {
+            console.log('🚀 ~ file: flights.js ~ line 40 ~ availableFlights ~ err', err);
+            res.status(400).send({ message: err });
+        });
 };
 export default availableFlights;
-// export default function handler(req, res) {
-//     res.status(200).json({ name: 'John Doe' });
-// }

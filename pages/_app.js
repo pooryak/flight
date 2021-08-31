@@ -1,10 +1,13 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
 import '../styles/normalize.css';
+import '../styles/theme.css';
 import axios from 'axios';
 import constants from '../constants';
 import '../styles/globals.css';
 
-const instance = axios.create({
-    baseURL: constants.baseUrl,
+axios.create({
+    // baseURL: constants.baseUrl,
     timeout: constants.timeout,
     responseType: 'application/json',
     headers: {

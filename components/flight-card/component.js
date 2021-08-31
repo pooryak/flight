@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { diffDate, timeOfFlights } from '../../utility/date';
 import style from './style.module.css';

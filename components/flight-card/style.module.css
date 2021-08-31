@@ -7,7 +7,8 @@
     margin-bottom: 1rem;
     border-radius: 5px;
     -webkit-box-shadow: 0.5px 0px 22px 0.5px rgba(0,0,0,0.2); 
-box-shadow: 0.5px 0px 2px 0.5px rgba(0,0,0,0.2);
+    box-shadow: 0.5px 0px 2px 0.5px rgba(0,0,0,0.2);
+    font-size: 15px;
 }
 
 .row {
@@ -22,9 +23,9 @@ box-shadow: 0.5px 0px 2px 0.5px rgba(0,0,0,0.2);
 
 .row > div:first-child  {
     font-weight: 600;
-    color : #424242;
+    color : var(--theme-page-text-first);
 }
 
 .row > div:nth-child(2)  {
-    color : #757575;
+    color : var(--theme-page-text-second);
 }
